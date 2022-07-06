@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ColorBox from "./Components/ColorBox";
+import "./App.css";
 
-function App() {
+const BG_COLORS = ["#1A481C", "#113F45", "#481C46", "#19184B"];
+const TEXT_COLORS = ["#F5AEAE", "#A9FFDB", "#F6E861", "#D39DFE"];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="bg-box">
+        {BG_COLORS.map((color) => (
+          <ColorBox color={color} key={color} type="bg" />
+        ))}
+      </div>
+      <div className="text-div">
+        <h1 id="welcome-text">Welcome to Color Palette App</h1>
+      </div>
+
+      <div className="text-box">
+        {TEXT_COLORS.map((color) => (
+          <ColorBox color={color} key={color} type="text" />
+        ))}
+      </div>
+    </>
   );
-}
+};
 
 export default App;
